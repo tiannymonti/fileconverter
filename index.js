@@ -44,7 +44,7 @@ app.post('/fileUpload', (req, res) => {
                 result.forEach(element => {
                     element.title = element.title.split(" ")
                         .map(wrd => wrd = wrd.replace(/(\r\n|\n|\r)/gm, '')
-                        .replace(/[^a-z_-]/gi,''))
+                        .replace(/[^a-z_-]/gi,'').toLowerCase())
                         .filter(wrd => wrd !== '')
                         .filter(wrd => wrd !== '-')
                         .join('|');
